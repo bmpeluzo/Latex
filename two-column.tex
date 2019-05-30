@@ -1,0 +1,154 @@
+
+% This is a LaTeX template for WFME abstract
+% 
+
+\documentclass[a4paper,11pt]{article}
+
+%%%%%%% PACKAGES (PLEASE INSERT YOUR OWN TITLE, AUTHORS, AND KEYWORDS) %%%%%%%
+
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{blindtext}
+\usepackage[
+   pdftitle={YOUR TITLE}, %%% <- your title
+   pdfauthor={AUTHOR, A. B., AUTHOR, A. B.},         %%% <- your author list
+   pdfkeywords={key1, key2, key3},   %%% <- your keywords
+   colorlinks,
+   linkcolor=blue,
+   urlcolor=blue,
+   citecolor=blue,
+   a4paper=true,
+%   dvipdfm           % Uncomment if using dvipdfm to convert dvi into pdf
+   ]{hyperref}
+\usepackage[utf8]{inputenc}
+
+%%%%\usepackage[para]{footmisc} %%% <- uncomment if you want several e-mail addresses to be inlined in the footer
+
+%%%%%%%%%%%%%%%%%%%% DIMENSIONS (do not change) %%%%%%%%%%%%%%%%%%%%
+
+\voffset=0.0cm
+\hoffset=0.0cm
+
+\topskip=0cm
+\topmargin=-0.54cm
+\oddsidemargin=-0.54cm
+\evensidemargin=2.0cm
+
+\textwidth=17.0cm
+\textheight=25.7cm
+\headheight=0cm
+\headsep=0cm
+\footskip=0cm
+
+%%%%%%%%%%%%%%%%%%%% MACROS (do not change) %%%%%%%%%%%%%%%%%%%%
+
+\renewcommand\refname{\normalsize References}
+\renewcommand\baselinestretch{1}
+\pagestyle{empty}
+\newcommand{\abstracttitle}[1]{
+ \begin{center}{\Large {\bf #1}}\end{center}
+}
+\newcommand{\authors}[1]{
+ \vspace*{-0.3cm}
+ \begin{center} {\bf #1} \end{center}
+ \vspace*{-0.3cm}
+}
+\newcommand{\addresses}[1]{
+ \begin{center} {\small #1} \end{center}
+}
+\newcommand{\synopsis}[1]{
+ \begin{center}
+ \setstretch{0.75}
+ \begin{minipage}[t]{16cm}
+   {\footnotesize {\bf Synopsis} #1 }
+ \end{minipage}
+ \setstretch{1.0}
+ \end{center}
+}
+\newcommand{\abstracttext}[1]{
+ \vspace*{-0.3cm}
+ \columnsep0.75cm
+ \begin{multicols}{2} #1 \end{multicols}
+}
+% Use \picturelportrait{0} when you want to include a portrait figure!
+\newcommand{\pictureportrait}[2]{
+ \vspace*{0.5cm}
+ \centerline{
+  \includegraphics*[width=7.8cm,angle=#1]{#2}
+%%%  \includegraphics*[width=7.8cm,height=9cm,angle=#1]{#2}
+ }
+}
+% Use \picturelandscape{0} when you want to include a landscape figure!
+\newcommand{\picturelandscape}[2]{
+ \vspace*{0.5cm}
+ \centerline{
+  \includegraphics*[width=7.8cm,angle=#1]{#2}
+%%%  \includegraphics*[width=7.8cm,height=5.5cm,angle=#1]{#2}
+ }
+}
+\newcommand{\capt}[2]{
+ \vspace*{-0.3cm}
+ \begin{center}
+ \begin{minipage}[t]{7.8cm} {\small {\bf Figure~#1}.~#2} \end{minipage}
+ \end{center}
+ \vspace*{0.3cm}
+}
+
+\newcommand{\captTab}[2]{
+ \vspace*{-0.1cm}
+ \begin{center}
+ \begin{minipage}[t]{7.8cm} {\small {\bf Table~#1}.~ #2} \end{minipage}
+ \end{center}
+ \vspace*{0.1cm}
+}
+
+\newcommand{\writeto}[1]{
+ \hspace*{-2.5mm} \footnote{E-mail: \href{mailto:#1}{#1}}\hspace*{-1.5mm}
+}
+
+%%%%%%%%%%%%%%%%% USER'S INPUT IS EXPECTED BELOW THIS LINE %%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\abstracttitle{TITLE}
+
+\authors{
+AUTHOR, A. B. C.$^{\ast}$\writeto{email@email.com},
+AUTHOR, A. B. C.$^{\ast}$\writeto{email@email.com}
+}
+
+\addresses{UNIVERSITY
+$^\ast$ }
+
+\synopsis{
+}
+
+\abstracttext{
+\blindtext
+
+Cite \cite{A}.
+\begin{equation}
+A = B+C  
+\label{equation}  
+\end{equation}
+
+Equation: \ref{EQUATION}
+
+\picturelandscape{0}{figure.eps}
+\capt{1}{Caption.}
+
+Another figure.
+
+\includegraphics[height=5.22cm]{figure2.eps}
+\capt{2}{Caption 2.}
+
+\begingroup
+\small
+\begin{thebibliography}{9}
+\bibitem{A} Author, A. {\em et al.} year {\em Journal Name.}
+\href{web page}{{\bf volume} page}
+\end{thebibliography}
+\endgroup
+}
+\end{document}
